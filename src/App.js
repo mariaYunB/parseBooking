@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './styles.css';
+import Card from './Card.jsx';
+import rates from './data.js';
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {rates.map((card, i) => {
+        return (
+          <Card key={i}
+            adults={card.adults}
+            checkin={card.checkin}
+            checkout={card.checkout}
+            currency={card.currency}
+            hotel_name={card.hotel_name}
+            id={card.id}
+            price={card.price}
+            has_meal={card.has_meal}
+          />
+        );
+      })}
     </div>
   );
-}
+};
 
 export default App;
